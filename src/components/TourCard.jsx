@@ -1,5 +1,15 @@
-import { Grid, Paper, Typography, Box, Rating, createTheme, ThemeProvider } from "@mui/material";
+import {
+    Grid,
+    Paper,
+    Typography,
+    Box,
+    Rating,
+    createTheme,
+    ThemeProvider,
+    Button,
+} from "@mui/material";
 import { AccessTime } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme({
     components: {
@@ -27,6 +37,7 @@ const theme = createTheme({
 });
 
 const TourCard = ({ tour }) => {
+    let navigate = useNavigate();
     return (
         <Grid item xs={3}>
             <ThemeProvider theme={theme}>
@@ -73,6 +84,17 @@ const TourCard = ({ tour }) => {
                             <Typography variant="h6" component="h3" marginTop={0}>
                                 From ${tour.price}
                             </Typography>
+                        </Box>
+                        <Box>
+                            <Button
+                                variant="contained"
+                                size="medium"
+                                onClick={() => {
+                                    navigate("/1");
+                                }}
+                            >
+                                Go
+                            </Button>
                         </Box>
                     </Box>
                 </Paper>
